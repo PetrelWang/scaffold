@@ -2,7 +2,12 @@ package com.bbc.dto;
 
 import cn.hutool.core.comparator.CompareUtil;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.StringUtils;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 /**
  * @Title: Person
@@ -12,10 +17,12 @@ import org.springframework.util.StringUtils;
  * @description:
  */
 @Data
+@Document("person")
 public class Person implements Comparable<Person> {
+    private String id;
     private String name;
     private int age;
-
+    public Person(){}
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
@@ -28,7 +35,6 @@ public class Person implements Comparable<Person> {
     public int getAge() {
         return age;
     }
-
     @Override
     public int compareTo(Person other) {
         if(StringUtils.isEmpty(other.name)){
@@ -37,8 +43,4 @@ public class Person implements Comparable<Person> {
         return this.name.compareTo(other.name);
     }
 
-    public static void main(String[] args) {
-        Contact build = new Contact.Builder().age(13).build();
-        System.out.println(build.toString());
-    }
 }

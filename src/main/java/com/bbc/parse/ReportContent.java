@@ -2,6 +2,10 @@ package com.bbc.parse;
 
 import lombok.Data;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 @Data
@@ -62,7 +66,7 @@ public class ReportContent {
     private String hseNote;
 
     /**
-     * 3 TODO 中深压力、温度 - 中深压力和温度分析内容  空着
+     * 3  中深压力、温度 - 中深压力和温度分析内容  空着
      */
     private String contentOfPandT;
 
@@ -153,5 +157,20 @@ public class ReportContent {
      * hse提示内容
      */
     private String hseContent;
+
+    public static void main(String[] args) throws IOException {
+        long start = System.currentTimeMillis();
+        String filePath = "C:\\Users\\T14\\Desktop\\test.txt"; // 指定要解析的文件路径
+
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            // 对每一行数据进行处理或分析
+            System.out.println(line);
+        }
+        reader.close();
+        long end = System.currentTimeMillis();
+        System.out.println(end- start);
+    }
 
 }

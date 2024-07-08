@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: parseword
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123344
+    url: jdbc:postgresql://192.168.126.143:5432/postgres?currentSchema=test&stringtype=unspecified
+  data:
+    mongodb:
+      host: 192.168.126.143
+      port: 27017
+      database: test
+minio:
+  accessKey: admin
+  secretKey: admin123456
+  bucket: test
+  endpoint: http://192.168.126.143:9000
+  readPath: http://192.168.126.143:9000
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.bbc.entity
+qwchat:
+  appId: ww2cb427958790e9e4
+  agentId: 1000002
+  redirectUri: http://192.168.0.223:9089
+  secret: pBv6hhhxW-rpegwCs-FOinvfunFxFPV_CHyp-9vhkOY
+  accessTokenUrl: https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ID&corpsecret=SECRET
+  getUserIDUrl: https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&userid=USERID
+  getUserUrl: https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&userid=USERID
+redisson:
+  host:
+    config: redis://192.168.126.143:6379
